@@ -5,9 +5,10 @@
   <link href='http://fonts.googleapis.com/css?family=Lato:300' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="styles.css">
 </head>
-<body onload="startGame('animales/mapache.png')">
+<body>
   <h1>Puzzle</h1>
-  <a class="back" onclick="history.back()">Volver a la configuraci&oacute;n</a>
-  <a class="reload" onclick="location.reload()">Volver a jugar</a>
+  <a class="back" onclick="endGame()">Volver a la configuraci&oacute;n</a>
+  <a class="reload" onclick="restartGame()">Volver a jugar</a>
+  <button onclick="startGame('animales/mapache.png')">Jugar</button>
 </body>
 </html>
