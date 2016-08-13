@@ -175,8 +175,6 @@ var gameArea = {
       this.canvas.width = window.innerWidth - PAGE_MARGIN;
       this.canvas.height = window.innerHeight - PAGE_MARGIN - 30;
       this.context = this.canvas.getContext("2d");
-      this.context.shadowBlur = 10;
-      this.context.shadowColor = "black";
       document.body.insertBefore(this.canvas, document.body.childNodes[0]);
       this.interval = setInterval(updateGameArea, 20);
       window.addEventListener('mousedown', function (e) {
