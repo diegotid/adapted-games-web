@@ -41,12 +41,16 @@ function setup() {
       reader.readAsDataURL(file);
       reader.addEventListener('loadend', function(e, file) {
         selectImage(this.result);
-        showGalery();
       });
     }, false);
   } else {
     dropZone.innerHTML = 'Navegador no soportado';
   }
+}
+
+function chooseImage(source) {
+  selectImage(source);
+  showGalery();
 }
 
 function selectImage(source) {
@@ -59,7 +63,6 @@ function selectImage(source) {
   changeLevel(document.getElementById("levelselector").value);
   document.getElementById("altoptions").className = 'crowded';
   document.getElementById("level").style.display = 'inline';
-  showGalery();
 }
 
 function showGalery() {
