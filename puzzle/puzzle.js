@@ -126,6 +126,8 @@ function restartGame() {
   }
   finishedTiles.length = 0;
   gameFinished = false;
+  gameArea.canvas.className = "";
+  document.body.className = "";
 }
 
 function settle(settled, tile) {
@@ -175,6 +177,7 @@ function settleSet(setIndex, tile) {
 var gameArea = {
   canvas : document.createElement("canvas"),
   start : function() {
+      this.cheer = new Audio('happykids.wav');
       this.canvas.width = window.innerWidth - PAGE_MARGIN;
       this.canvas.height = window.innerHeight - PAGE_MARGIN - 30;
       this.context = this.canvas.getContext("2d");
@@ -226,6 +229,9 @@ var gameArea = {
     }
     if (total < PAGE_MARGIN) {
       gameFinished = true;
+      this.canvas.className = "finished";
+      document.body.className = "finished";
+      this.cheer.play();
     }
   },
   touchEvent : function(e) {
