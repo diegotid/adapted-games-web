@@ -55,14 +55,27 @@ function chooseImage(source) {
 
 function selectImage(source) {
   selectedImage.src = source;
-  document.getElementById("imagepreview").src = selectedImage.src;
-  imageScale = (window.innerWidth / selectedImage.width) / 2;
-  if (window.innerHeight / selectedImage.height < imageScale * 2) {
-    imageScale = (window.innerHeight / selectedImage.height) / 2;
+    document.getElementById("imagepreview").src = selectedImage.src;
+    imageScale = (window.innerWidth / selectedImage.width) / 2;
+    if (window.innerHeight / selectedImage.height < imageScale * 2) {
+      imageScale = (window.innerHeight / selectedImage.height) / 2;
+    }
+    changeLevel(document.getElementById("levelselector").value);
+    document.getElementById("altoptions").className = 'crowded';
+    document.getElementById("level").style.display = 'inline';
   }
-  changeLevel(document.getElementById("levelselector").value);
-  document.getElementById("altoptions").className = 'crowded';
-  document.getElementById("level").style.display = 'inline';
+}
+
+function takeImage() {
+  var fileSelector = document.getElementById("imageselector");
+  fileSelector.click();
+  var reader = new FileReader();
+  fileSelector.addEventListener('change', function() {
+    reader.readAsDataURL(fileSelector.files[0]);
+  });
+  reader.addEventListener('loadend', function() {
+    selectImage(this.result);
+  });
 }
 
 function showGalery() {
@@ -70,9 +83,11 @@ function showGalery() {
   if (galery.style.display == 'inline') {
     galery.style.display = 'none';
     document.getElementById("imagepreview").style.display = 'block';
+    document.getElementById("level").style.display = 'inline';
   } else {
     galery.style.display = 'inline';
     document.getElementById("imagepreview").style.display = 'none';
+    document.getElementById("level").style.display = 'none';
   }
 }
 

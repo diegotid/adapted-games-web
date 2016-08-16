@@ -10,7 +10,8 @@
   <a class="reload" onclick="restartGame()">Jugar otra vez</a>
   <div class="gamesetup">
     <p>Arrastra aqu&iacute; la imagen que quieras de tu ordenador para hacer un puzzle con ella</p>
-    <p id="altoptions">Si no puedes, haz <a href="javascript:alert('Pendiente')">clic aqu&iacute;</a> o selecciona un <a href="javascript:showGalery()">dibujo de un animalito</a></p>
+    <p id="altoptions">Si no puedes, haz <a href="javascript:takeImage()">clic aqu&iacute;</a> o selecciona un <a href="javascript:showGalery()">dibujo de un animalito</a></p>
+    <input id="imageselector" type="file" accept="image/*"/>
     <div id="galery">
       <ul>
         <li><a href="javascript:chooseImage('animales/ardilla.png')"><img src="animales/ardilla.png"></a></li>

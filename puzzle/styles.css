@@ -94,6 +94,10 @@ h1 {
   height: 90;
 }
 
+#imageselector {
+  display: none;
+}
+
 #imagepreview {
   height: 45%;
   width: auto;
