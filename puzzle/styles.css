@@ -118,6 +118,12 @@ h1 {
   margin: auto;
 }
 
+#level img {
+  width: 18%;
+  padding: 20;
+  margin: auto;
+}
+
 button {
   width: 60%;
   border: none;
