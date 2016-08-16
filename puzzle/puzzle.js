@@ -55,6 +55,7 @@ function chooseImage(source) {
 
 function selectImage(source) {
   selectedImage.src = source;
+  selectedImage.onload = function() {
     document.getElementById("imagepreview").src = selectedImage.src;
     imageScale = (window.innerWidth / selectedImage.width) / 2;
     if (window.innerHeight / selectedImage.height < imageScale * 2) {
