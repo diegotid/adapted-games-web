@@ -133,6 +133,7 @@ function startGame() {
   document.getElementsByClassName("back")[0].style.display = 'inline';
   document.getElementsByClassName("reload")[0].style.display = 'inline';
   document.getElementsByClassName("gamesetup")[0].style.display = 'none';
+  document.getElementById("cheering").style.display = 'none';
   document.getElementById("gamename").className = 'crowded';
 }
 
@@ -144,6 +145,7 @@ function restartGame() {
   gameFinished = false;
   gameArea.canvas.className = "";
   document.body.className = "";
+  document.getElementById("cheering").style.display = 'none';
 }
 
 function settle(settled, tile) {
@@ -248,6 +250,7 @@ var gameArea = {
       this.canvas.className = "finished";
       document.body.className = "finished";
       this.cheer.play();
+      document.getElementById("cheering").style.display = 'inline';
     }
   },
   touchEvent : function(e) {
