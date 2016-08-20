@@ -8,6 +8,7 @@ var imageScale = 1;
 var imageTiles = [];
 var finishedTiles = [];
 
+var cheer = new Audio('happykids.wav');
 var PAGE_MARGIN = 25;
 var MAGNET_AREA = 50;
 
@@ -130,6 +131,7 @@ function startGame() {
   }
   gameFinished = false;
   gameArea.start();
+  cheer.load();
   document.getElementsByClassName("back")[0].style.display = 'inline';
   document.getElementsByClassName("reload")[0].style.display = 'inline';
   document.getElementsByClassName("gamesetup")[0].style.display = 'none';
@@ -195,7 +197,6 @@ function settleSet(setIndex, tile) {
 var gameArea = {
   canvas : document.createElement("canvas"),
   start : function() {
-      this.cheer = new Audio('happykids.wav');
       this.canvas.width = window.innerWidth - PAGE_MARGIN;
       this.canvas.height = window.innerHeight - PAGE_MARGIN - 30;
       this.context = this.canvas.getContext("2d");
@@ -249,7 +250,7 @@ var gameArea = {
       gameFinished = true;
       this.canvas.className = "finished";
       document.body.className = "finished";
-      this.cheer.play();
+      cheer.play();
       document.getElementById("cheering").style.display = 'inline';
     }
   },
