@@ -9,6 +9,8 @@ var imageTiles = [];
 var finishedTiles = [];
 
 var cheer = new Audio('happykids.wav');
+var burst = new Audio('balloon.wav');
+
 var PAGE_MARGIN = 25;
 var MAGNET_AREA = 50;
 
@@ -44,6 +46,20 @@ function setup() {
         selectImage(this.result);
       });
     }, false);
+    var balloons = document.getElementsByClassName("balloon");
+    for (var i = 0; i < balloons.length; i++) {
+      var balloon = balloons[i];
+      balloon.addEventListener('mousedown', function(e) {
+        burst.play();
+        event.target.style.display = 'none';
+        e.stopPropagation();
+      });
+      balloon.addEventListener('touchstart', function(e) {
+        burst.play();
+        event.target.style.display = 'none';
+        e.stopPropagation();
+      });
+    }
   } else {
     dropZone.innerHTML = 'Navegador no soportado';
   }
@@ -132,6 +148,7 @@ function startGame() {
   gameFinished = false;
   gameArea.start();
   cheer.load();
+  burst.load();
   document.getElementsByClassName("back")[0].style.display = 'inline';
   document.getElementsByClassName("reload")[0].style.display = 'inline';
   document.getElementsByClassName("gamesetup")[0].style.display = 'none';
@@ -148,6 +165,10 @@ function restartGame() {
   gameArea.canvas.className = "";
   document.body.className = "";
   document.getElementById("cheering").style.display = 'none';
+  var balloons = document.getElementsByClassName("balloon");
+  for (var i = 0; i < balloons.length; i++) {
+    balloons[i].style.display = 'inline-block';
+  }
 }
 
 function settle(settled, tile) {
