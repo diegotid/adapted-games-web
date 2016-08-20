@@ -149,8 +149,29 @@ function startGame() {
   gameArea.start();
   cheer.load();
   burst.load();
+  var helpAnchor = document.getElementsByClassName("help")[0];
+  helpAnchor.addEventListener('mouseover', function(e) {
+    document.getElementById("imagehelp").style.display = 'inline';
+    gameArea.canvas.style.display = "none";
+  });
+  helpAnchor.addEventListener('mouseout', function(e) {
+    document.getElementById("imagehelp").style.display = 'none';
+    gameArea.canvas.style.display = "block";
+  });
+  helpAnchor.addEventListener('click', function(e) {
+    e.preventDefault();
+    var imagehelp = document.getElementById("imagehelp");
+    if (imagehelp.style.display == 'none') {
+      imagehelp.style.display = 'inline';
+      gameArea.canvas.style.display = "none";
+    } else {
+      imagehelp.style.display = 'none';
+      gameArea.canvas.style.display = "block";
+    }
+  });
   document.getElementsByClassName("back")[0].style.display = 'inline';
   document.getElementsByClassName("reload")[0].style.display = 'inline';
+  document.getElementsByClassName("help")[0].style.display = 'inline';
   document.getElementsByClassName("gamesetup")[0].style.display = 'none';
   document.getElementById("cheering").style.display = 'none';
   document.getElementById("gamename").className = 'crowded';

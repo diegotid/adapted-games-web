@@ -108,6 +108,14 @@ h1 {
   pointer-events: none;
 }
 
+#imagehelp {
+  display: none;
+  position: absolute;
+  height: 25%;
+  left: 30px;
+  bottom: 45px;
+}
+
 #level {
   width: 100%;
   position: absolute;
@@ -163,6 +171,18 @@ a.reload {
   right: 15;
   padding-left: 30;
   background: url('img/reload.png') no-repeat;
+  background-size: 23;
+}
+
+a.help {
+  color: rgb(41, 105, 195);
+  display: none;
+  position: absolute;
+  cursor: pointer;
+  bottom: 20;
+  left: 25;
+  padding-left: 30;
+  background: url('img/help.png') no-repeat;
   background-size: 23;
 }
 
