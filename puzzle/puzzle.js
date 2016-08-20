@@ -73,7 +73,10 @@ function chooseImage(source) {
 function selectImage(source) {
   selectedImage.src = source;
   selectedImage.onload = function() {
+    document.getElementById("imagepreview").style.display = "block";
     document.getElementById("imagepreview").src = selectedImage.src;
+    document.getElementById("imagehelp").src = selectedImage.src;
+    document.getElementById("galery").style.display = "none";
     imageScale = (window.innerWidth / selectedImage.width) / 2;
     if (window.innerHeight / selectedImage.height < imageScale * 2) {
       imageScale = (window.innerHeight / selectedImage.height) / 2;
