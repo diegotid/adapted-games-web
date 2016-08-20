@@ -193,6 +193,7 @@ function restartGame() {
   for (var i = 0; i < balloons.length; i++) {
     balloons[i].style.display = 'inline-block';
   }
+  document.getElementsByClassName("help")[0].style.display = 'inline';
 }
 
 function settle(settled, tile) {
@@ -297,6 +298,7 @@ var gameArea = {
       document.body.className = "finished";
       cheer.play();
       document.getElementById("cheering").style.display = 'inline';
+      document.getElementsByClassName("help")[0].style.display = 'none';
     }
   },
   touchEvent : function(e) {

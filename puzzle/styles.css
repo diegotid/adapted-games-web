@@ -199,8 +199,8 @@ canvas {
 }
 
 canvas.finished {
-  border: 3px solid rgb(62, 196, 37);
-  background-color: rgba(62, 196, 37, 0.5);
+  border: none;
+  background-color: rgba(62, 196, 37, 0);
 }
 
 input[type=range] {
