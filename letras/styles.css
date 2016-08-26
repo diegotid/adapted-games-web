@@ -1,0 +1,213 @@
+
+@font-face {
+    font-family: 'Imrans';
+    src: url('imrans.ttf');
+}
+
+body {
+  font-family: 'Imrans';
+  font-size: 100px;
+}
+
+#board {
+  position: absolute;
+  width: 75%;
+  height: 180px;
+  margin: auto;
+  text-align: center;
+  top: 40px;
+  right: 0;
+  left: 0;
+  padding: 30;
+  border-radius: 9;
+  border: 3px dashed rgb(41, 105, 195);
+  background-color: rgba(41, 105, 195, 0.15);
+}
+
+#board p {
+  position: absolute;
+  margin: 0 5%;
+  top: 0;
+  font-size: 3em;
+}
+
+#board p.medium {
+  font-size: 2.5em;
+}
+
+#board p.small {
+  font-size: 2em;
+}
+
+#board p::selection {
+  background: rgba(0, 0, 0, 0);
+}
+
+#board p::-moz-selection {
+  background: rgba(0, 0, 0, 0);
+}
+
+#board hr {
+  width: 80%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 180px auto;
+  border: 2px solid rgb(41, 105, 195);
+}
+
+#speaker {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+}
+
+#speaker img {
+  height: 40px;
+}
+
+#cleaner {
+  position: absolute;
+  bottom: 10px;
+  right: 15px;
+}
+
+#cleaner img {
+  height: 35px;
+}
+
+#setup {
+  position: absolute;
+  top: 10px;
+  left: 15px;
+}
+
+#setup img {
+  height: 30px;
+}
+
+#alphabet {
+  display: none;
+  position: absolute;
+  bottom: 0;
+}
+
+#alphabet ul {
+  padding: 0;
+  margin: 30px;
+}
+
+#alphabet ul li {
+  font-size: 0.6em;
+  background-color: red;
+  display: inline-block;
+  color: white;
+  margin: 10px;
+  padding: 0 30px;
+  border-radius: 10px;
+}
+
+#alphabet ul li.off {
+  background-color: lightgrey;
+}
+
+#rack {
+  position: absolute;
+  width: 100%;
+  margin: auto;
+  text-align: center;
+  bottom: 40px;
+  right: 0;
+  left: 0;
+}
+
+#rack ul {
+  list-style-type: none;
+  margin: 20px;
+  padding: 0;
+}
+
+#rack ul li {
+  display: inline-block;
+  color: white;
+  font-size: 0.9em;
+  margin: 0 10px;
+  padding: 0 25px;
+  background-color: rgb(41, 105, 195);
+  border-radius: 10px;
+}
+
+#rack ul.syllable li {
+  padding: 0 15px;
+}
+
+#rack ul.consonants li {
+  color: rgb(41, 105, 195);
+  background-color: white;
+  border: 1px solid rgb(41, 105, 195);
+}
+
+#rack ul.consonants li.on {
+  background-color: rgba(41, 105, 195, 0.3);
+}
+
+.syllable {
+  display: none;
+}
+
+@media only screen and (max-width: 600) {
+  #board {
+    height: 120px;
+  }
+  #board p {
+    font-size: 2em;
+  }
+  #board p.medium {
+    font-size: 1.8em;
+  }
+  #board p.small {
+    font-size: 1.6em;
+  }
+  #board hr {
+    margin: 120px auto;
+  }
+  #rack ul li {
+    font-size: 0.8em;
+    padding: 0 20px;
+  }
+}
+
+@media only screen and (max-width: 450) {
+  #board {
+    height: 100px !important;
+  }
+  #board p {
+    font-size: 1.6em !important;
+  }
+  #board p.medium {
+    font-size: 1.45em;
+  }
+  #board p.small {
+    font-size: 1.3em;
+  }
+  #board hr {
+    margin: 100px auto !important;
+  }
+  #rack {
+    bottom: 20px;
+  }
+  #rack ul {
+    margin: 5px;
+  }
+  #rack ul li {
+    margin: 5px;
+    font-size: 0.6em !important;
+    padding: 0 14px !important;
+  }
+  #rack ul.syllable li {
+    font-size: 0.5em !important;
+    padding: 0 5px !important;
+  }
+}

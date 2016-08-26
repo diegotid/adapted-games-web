@@ -1,0 +1,28 @@
+<html>
+<head>
+  <title>Letras</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset='UTF-8'>
+  <script type="text/javascript" src="letras.js"></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body onload="setup()">
+  <div id="board">
+    <p id="word"></p>
+    <a id="speaker" href="javascript:listen(document.getElementById('word'))">
+      <img src="img/speaker.png"/>
+    </a>
+    <a id="cleaner" href="javascript:erase()">
+      <img src="img/eraser.png"/>
+    </a>
+    <a id="setup" href="javascript:subset()">
+      <img src="img/gear.png"/>
+    </a>
+    <hr/>
+  </div>
+  <div id="rack"></div>
+  <div id="alphabet"></div>
+</body>
+<!-- <script src='//vws.responsivevoice.com/v/e?key=qnAN4rI6'></script> -->
+<script src="voice.js"></script>
+</html>
