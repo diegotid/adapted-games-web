@@ -9,6 +9,15 @@ body {
   font-size: 100px;
 }
 
+h1 {
+  font-family: sans-serif;
+  color: rgb(41, 105, 195);
+  text-align: center;
+  font-size: 0.2em;
+  font-weight: bold;
+  clear: both;
+}
+
 #board {
   position: absolute;
   width: 75%;
@@ -62,10 +71,21 @@ body {
   position: absolute;
   top: 10px;
   right: 15px;
+  font-size: 0;
+}
+
+#speaker li {
+  float: left;
+}
+
+#speaker a {
+  text-decoration: none;
 }
 
 #speaker img {
   height: 40px;
+  margin: 0 0 0 10px;
+  padding: 0;
 }
 
 #cleaner {
@@ -75,6 +95,16 @@ body {
 }
 
 #cleaner img {
+  height: 35px;
+}
+
+#space {
+  position: absolute;
+  bottom: 10px;
+  left: 15px;
+}
+
+#space img {
   height: 35px;
 }
 
@@ -88,29 +118,101 @@ body {
   height: 30px;
 }
 
-#alphabet {
+#settings {
   display: none;
   position: absolute;
+  top: 0;
+  left: 0;
   bottom: 0;
+  margin: 0;
+  width: 75%;
+  max-width: 420px;
+  height: 100%;
+  background-color: rgba(14, 40, 75, 0.85);
 }
 
-#alphabet ul {
-  padding: 0;
-  margin: 30px;
+#settings form {
+  padding: 25px;
 }
 
-#alphabet ul li {
-  font-size: 0.6em;
-  background-color: red;
-  display: inline-block;
+#settings button {
+  width: 40%;
+  position: absolute;
+  margin: 30px auto;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  color: rgb(14, 40, 75);
+  background-color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 0.15em;
+  padding: 8px;
+}
+
+#settings input {
+  display: block;
+  float: left;
+  clear: both;
   color: white;
-  margin: 10px;
-  padding: 0 30px;
+  margin: 15px auto;
+  width: 100%;
+  left: 0;
+  right: 0;
+  background-color: rgba(14, 40, 75, 0);
+  border: 1px solid white;
+  border-radius: 3px;
+  font-family: 'Imrans';
+  font-size: 0.5em;
+}
+
+#settings label {
+  margin: 15px 0 0 0;
+  display: block;
+  font-family: sans-serif;
+  font-weight: lighter;
+  font-size: 0.2em;
+  color: white;
+}
+
+#settings label.switchLabel {
+  float: left;
+}
+
+#settings label.switch {
+  float: right;
+  margin: 8px;
+}
+
+#settings alphabet {
+  display: block;
+  float: left;
+  clear: both;
+  width: 100%;
+  background-color: yellow;
+}
+
+#settings ul {
+  margin: 0;
+  padding: 10px 20px;
+  text-align: center;
+  clear: both;
+}
+
+#settings ul li {
+  font-size: 0.6em;
+  display: inline-block;
+  color: rgb(14, 40, 75);
+  background-color: white;
+  margin: 5px;
+  padding: 0 10px;
   border-radius: 10px;
 }
 
-#alphabet ul li.off {
-  background-color: lightgrey;
+#settings ul li.off {
+  color: white;
+  background-color: rgba(14, 40, 75, 0);
+  border: 1px solid white;
 }
 
 #rack {
@@ -150,11 +252,69 @@ body {
 }
 
 #rack ul.consonants li.on {
-  background-color: rgba(41, 105, 195, 0.3);
+  /*background-color: rgba(41, 105, 195, 0.3);*/
+  color: white;
+  background-color: rgb(41, 105, 195);
 }
 
 .syllable {
   display: none;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {display:none;}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
 }
 
 @media only screen and (max-width: 600) {
@@ -173,10 +333,6 @@ body {
   #board hr {
     margin: 120px auto;
   }
-  #rack ul li {
-    font-size: 0.8em;
-    padding: 0 20px;
-  }
 }
 
 @media only screen and (max-width: 450) {
@@ -187,10 +343,10 @@ body {
     font-size: 1.6em !important;
   }
   #board p.medium {
-    font-size: 1.45em;
+    font-size: 1.45em !important;
   }
   #board p.small {
-    font-size: 1.3em;
+    font-size: 1.3em !important;
   }
   #board hr {
     margin: 100px auto !important;
@@ -203,11 +359,18 @@ body {
   }
   #rack ul li {
     margin: 5px;
-    font-size: 0.6em !important;
-    padding: 0 14px !important;
+    font-size: 0.6em;
+    padding: 0 14px;
   }
   #rack ul.syllable li {
-    font-size: 0.5em !important;
-    padding: 0 5px !important;
+    font-size: 0.5em;
+    padding: 0 5px;
+  }
+  #settings ul {
+    padding: 10px 0;
+  }
+  #settings ul li {
+    margin: 2px;
+    font-size: 0.24em;
   }
 }

@@ -7,21 +7,47 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body onload="setup()">
+  <h1 id="gamename">Letras</h1>
   <div id="board">
     <p id="word"></p>
-    <a id="speaker" href="javascript:listen(document.getElementById('word'))">
-      <img src="img/speaker.png"/>
-    </a>
-    <a id="cleaner" href="javascript:erase()">
+    <!-- <a id="speaker" href="javascript:listen(document.getElementById('word'))"> -->
+    <div id="speaker">
+      <a href="javascript:definition(document.getElementById('word'))" title="Escuchar la definici&oacute;n de la palabra">
+          <img src="img/speaker.png"/>
+      </a>
+      <a href="javascript:pictures(document.getElementById('word'))" title="Buscar im&aacute;genes de esta palabra">
+          <img src="img/pictures.png"/>
+      </a>
+      <a href="javascript:videos(document.getElementById('word'))" title="Buscar v&iacute;deos de esta palabra">
+          <img src="img/videos.png"/>
+      </a>
+    </div>
+    <a id="cleaner" href="javascript:erase()" title="Borrar &uacute;ltima letra o s&iacute;laba">
       <img src="img/eraser.png"/>
     </a>
-    <a id="setup" href="javascript:subset()">
+    <a id="setup" href="javascript:settings()" title="Mostrar los ajustes">
       <img src="img/gear.png"/>
+    </a>
+    <a id="space" href="javascript:addToWord(' ')" title="Introducir espacio en blanco">
+      <img src="img/space.png"/>
     </a>
     <hr/>
   </div>
   <div id="rack"></div>
-  <div id="alphabet"></div>
+  <div id="settings">
+    <form action="javascript:settings()">
+      <label for="name">Nombre del ni&ntilde;o:</label>
+      <input type="text" id="name"/>
+      <label for="alphabet">Letras que conoce:</label>
+      <div id="alphabet"></div>
+      <label for="onlySyllables" class="switchLabel">Escribir por s&iacute;labas?</label>
+      <label class="switch" id="onlySyllables">
+        <input id="syllablesCheck" type="checkbox" checked>
+        <div class="slider round"></div>
+      </label>
+      <button id="settingsDone">Terminado</button>
+    </form>
+  </div>
 </body>
 <!-- <script src='//vws.responsivevoice.com/v/e?key=qnAN4rI6'></script> -->
 <script src="voice.js"></script>
